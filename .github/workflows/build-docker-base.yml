@@ -1,0 +1,24 @@
+name: Build Serverless Docker Base
+
+on:
+  schedule:
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+jobs:
+  update-gradle-wrapper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '25'
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+        with:
+          cache-read-only: ${{ github.ref != 'refs/heads/master' }}
+      - run: ./gradlew :server-base:buildImage :server-base:pushImage
