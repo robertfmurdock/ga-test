@@ -1,7 +1,4 @@
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.zegreatrob.coupling.plugins.NodeExec
-import com.zegreatrob.coupling.plugins.setup
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
 plugins {
@@ -122,5 +119,4 @@ tasks {
     named("browserTest") {
         outputs.cacheIf { true }
     }
-
 }
