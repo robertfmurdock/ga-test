@@ -50,7 +50,7 @@ jobs:
         run: ./gradlew release check --scan --info -Pversion=$(./gradlew calculateVersion --configuration-cache -q)
       - name: Collect Results
         if: ${{ always() }}
-        run: ./gradlew composeLogs collectResults
+        run: ./gradlew collectResults
       - uses: actions/upload-artifact@v2
         if: ${{ always() }}
         with:
