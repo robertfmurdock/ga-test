@@ -2,6 +2,8 @@ plugins {
     id("com.zegreatrob.coupling.plugins.mp")
 }
 group = "com.zegreatrob.coupling.libraries"
+version = "0.0.0"
+
 kotlin {
     targets {
         jvm()
