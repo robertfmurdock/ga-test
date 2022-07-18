@@ -11,7 +11,7 @@ val player = Player()
 
 fun main() {
     createRoot(document.viewContainerNode)
-        .render(RootComponent.create { +"Content: $player" })
+        .render(RootComponent.create { +"Content z: $player" })
 }
 
 private val Document.viewContainerNode get() = getElementsByClassName("view-container")[0]!!
